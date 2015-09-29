@@ -28,6 +28,18 @@ describe("thermostat", function() {
     expect(thermostat.powerModeON).toBe(true)
   });
 
+  it('cannot have temp higher than 25 when power mode ON',function() {
+    thermostat = new Thermostat;
+    thermostat.tempUp(50);
+    expect(thermostat.temperature).toEqual(25)
+  });
+
+  it('resets to 20',function() {
+    thermostat = new Thermostat;
+    thermostat.tempUp(5);
+    thermostat.reset();
+    expect(thermostat.temperature).toEqual(20)
+  });
 
 
 });

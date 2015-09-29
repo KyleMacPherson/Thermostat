@@ -13,3 +13,7 @@ Thermostat.prototype.tempDown = function(num) {
     this.temperature = 10;
   }
 };
+
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+};
