@@ -5,7 +5,7 @@ function Thermostat() {
 
 Thermostat.prototype.tempUp = function(num) {
   this.temperature += num;
-  if(this.powerModeON && this.temperature > 25){
+  if (this.tooHot()){
     this.temperature = 25;
   }
   else if (!this.powerModeON && this.temperature > 32) {
@@ -24,6 +24,16 @@ Thermostat.prototype.reset = function() {
   this.temperature = 20;
 };
 
-Thermostat.prototype.switchPowermodeOff = function() {
-  this.powerModeON = false;
+Thermostat.prototype.switchPowermode = function() {
+  this.powerModeON = !this.powerModeON
+  if (this.tooHot()) {
+    this.temperature = 25;
+  }
+};
+
+
+Thermostat.prototype.tooHot = function () {
+  if(this.powerModeON && this.temperature > 25) {
+    return true
+  }
 };

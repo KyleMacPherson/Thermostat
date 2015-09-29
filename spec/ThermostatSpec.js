@@ -30,9 +30,18 @@ describe("thermostat", function() {
 
   it('can switch power mode off', function() {
     thermostat = new Thermostat;
-    thermostat.switchPowermodeOff();
-    expect(thermostat.powerModeON).toBe(false)
+    thermostat.switchPowermode();
+    expect(thermostat.powerModeON).toBe(false);
   });
+
+
+  it('can switch power mode on',function(){
+    thermostat = new Thermostat
+    thermostat.switchPowermode();
+    thermostat.switchPowermode();
+    expect(thermostat.powerModeON).toBe(true);
+  });
+
 
   it('cannot have temp higher than 25 when power mode ON',function() {
     thermostat = new Thermostat;
@@ -43,7 +52,7 @@ describe("thermostat", function() {
 
   it('cannot have temp higher than 32 when power mode OFF', function() {
     thermostat = new Thermostat;
-    thermostat.switchPowermodeOff();
+    thermostat.switchPowermode();
     thermostat.tempUp(50);
     expect(thermostat.temperature).toEqual(32)
   });
@@ -53,6 +62,14 @@ describe("thermostat", function() {
     thermostat.tempUp(5);
     thermostat.reset();
     expect(thermostat.temperature).toEqual(20)
+  });
+
+  it('does not stay above 25 if power saving mode switch on', function() {
+    thermostat = new Thermostat;
+    thermostat.switchPowermode();
+    thermostat.tempUp(12);
+    thermostat.switchPowermode();
+    expect(thermostat.temperature).toEqual(25)
   });
 
 
