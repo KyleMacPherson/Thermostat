@@ -4,8 +4,8 @@ describe("thermostat", function() {
     loadFixtures('index.html');
   });
 
-  it('there is a temperature section', function() {
-    expect($('#temperaturez')).toExist();
+  it('there is an up button', function() {
+    expect($('#upbutton')).toExist();
   });
 
 });
