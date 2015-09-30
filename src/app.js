@@ -5,7 +5,14 @@ t = new Thermostat;
 $(document).ready(function() {
 
     var showTempVar = (function() {
-     $('#temperature').text(t.temperature);
+    $('#temperature').text(t.temperature);
+    if (t.temperature < 18) {
+    $('.temp').css('color', 'green');
+      } else if (t.temperature < 25) {
+    $('.temp').css('color', 'orange');
+      } else {
+    $('.temp').css('color', 'red');
+    }
     });
 
     showTempVar();
@@ -29,6 +36,5 @@ $(document).ready(function() {
       t.switchPowermode();
       showTempVar();
     });
-
 
 });
