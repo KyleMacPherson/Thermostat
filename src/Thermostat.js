@@ -55,4 +55,9 @@ Thermostat.prototype.updateTemp = function () {
 
 };
 
+  Thermostat.prototype.toggle = function () {
+    this.checked = !this.checked;
+  };
+
+
 t = new Thermostat()
