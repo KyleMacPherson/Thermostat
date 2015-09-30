@@ -8,17 +8,16 @@
   <body>
 
     <div class="container">
-    <section class ="temp"><span class="temperature" data-color=""></span>° C</section>
+    <section class ="temp"><span id="temperature" data-color=""></span> C</section>
     <section class="buttons">
-    <button class="up" type="button"> UP</button>
-    <button class="down"type="button">DOWN</button>
-    <button class="reset" type="button">Reset</button>
+    <button class="up" type="button" id="upbutton" onclick='t.tempUp(1)'> UP</button>
+    <button class="down"type="button" id="downbutton" onclick='t.tempDown(1)'>DOWN</button>
+    <button class="reset" type="button" id = "reset" onclick='t.reset()'>Reset</button>
     <input class="power_save" type="checkbox" checked>Power saving mode</button>
     <section class="buttons">
   </div>
 
   <script src="src/Thermostat.js"></script>
-
   </body>
 
 
@@ -26,3 +25,10 @@
 
 
 </html>
+
+
+<!--THIS IS DOCUMENT from thermostat.js-->
+<!--WINDOW IS THE BROWSER, WHICH HAS PROPERTY document
+DOCUMENT IS THIS HTML, WHICH HAS PROPERTIES AND METHODS FOR GETTING AND UPDATING HTML
+I.E getElementById FETCHES A PART OF DOCUMENT WHICH YOU COULD ASSIGN TO A VARIABLE AND SET IT
+OR USE IT IN A METHOD-->
