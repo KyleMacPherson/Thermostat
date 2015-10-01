@@ -1,4 +1,4 @@
-describe("thermostat", function() {
+describe('thermostat', function() {
 
   beforeEach(function() {
     loadFixtures('index.html');
