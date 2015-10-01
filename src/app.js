@@ -13,6 +13,7 @@ $(document).ready(function() {
     }
   });
 
+
   showTempVar();
 
   $('#upbutton').mouseup(function() {
@@ -33,6 +34,10 @@ $(document).ready(function() {
   $('#power_save').mouseup(function() {
     t.switchPowermode();
     showTempVar();
+  });
+
+  $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&callback=?', function(data) {
+    $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
   });
 
 });

@@ -1,0 +1,37 @@
+$.getJSON('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&callback=?', function(data) {
+  $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
+});
+
+//Below is some almost workign code for autocomplete
+
+$(function() {
+    var availableTags = [
+      "Ruislip",
+      "Tonyrefail",
+      "Carmarthenshire",
+      "East Portlemouth",
+      "Dundee City",
+      "Nuneaton and Bedworth District",
+      "Rhyl",
+      "Foulridge",
+      "Hermitage",
+      "Golcar",
+      "Thornbury",
+      "Yate",
+      "Caia Park",
+      "Looe" ]
+
+    $( "#tags" ).autocomplete({
+      source: function (availableTags, tags) {
+        console.log(tags);
+      select: $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + tags.value +'&units=metric&callback=?', function(data) {
+        $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
+      });
+    }});
+  });
+
+  <div class="ui-widget">
+    <label for="tags">Location: </label>
+    <input id="tags">
+    <div id = 'summary'></div>
+  </div>
