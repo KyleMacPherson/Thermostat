@@ -47,7 +47,7 @@ Thermostat.prototype.tooHot = function () {
 //     window.document.getElementById('temperature').innerHTML = this.temperature;
 //     if(this.temperature < 18) {
 //       window.document.getElementById('temperature').style.color = 'green'
-//     } else if (this.temperature < 25) {
+    // } else if (this.temperature < 25) {
 //       window.document.getElementById('temperature').style.color = 'yellow'
 //     } else {
 //       window.document.getElementById('temperature').style.color = 'red'
