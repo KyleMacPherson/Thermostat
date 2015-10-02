@@ -1,6 +1,7 @@
 function Thermostat() {
   this.temperature = 20;
   this.powerModeON = true;
+  // this.city = 'London'
 };
 
 Thermostat.prototype.tempUp = function(num) {
@@ -39,3 +40,7 @@ Thermostat.prototype.tooHot = function() {
     return true;
   };
 };
+
+// Thermostat.prototype.selectCity = function(city) {
+//   this.city = city
+// };

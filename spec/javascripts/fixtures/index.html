@@ -2,28 +2,35 @@
 <html>
   <head>
        <title>Thermostat</title>
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.js"></script>
        <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
        <script src="../../../src/Thermostat.js"></script>
        <script src='../../../src/app.js'></script>
+       <link href="../../../public/css/custom.css" rel='stylesheet'
   </head>
 
 
 
-  <body>
-    <div class="container">
+  <body class='container'>
+    <div style='text-align: center'>
     <section class ="temp"><span id="temperature"></span> C</section>
     <section class="buttons">
-    <button class="up" type="button"id="upbutton"> UP</button>
-    <button class="down"type="button" id="downbutton">DOWN</button>
+    <input class="btn btn-danger" type="button"id="upbutton" value='UP'></button>
+    <input class="btn btn-info" type="button" id="downbutton" value='DOWN'></button>
     <button class="reset" type="button" id = "reset">Reset</button>
     <input class="power_save" type="checkbox" checked id="power_save">Power saving mode</button>
     <section class="buttons">
-  </div>
 
 
   <div id = 'summary'></div>
 
+  <form>
+  City:<br>
+  <input type="text" id="city" value="Enter your city">
+  <input type ="button" id="submit-city" value="Submit City">
+  </form>
+</div>
   </body>
 
 

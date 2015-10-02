@@ -1,8 +1,11 @@
 t = new Thermostat;
 
+var city = "London"
+
 $(document).ready(function() {
 
   var showTempVar = (function() {
+    $('#city').text(t.city)
     $('#temperature').text(t.temperature);
     if (t.temperature < 18) {
       $('.temp').css('color', 'green');
@@ -36,8 +39,15 @@ $(document).ready(function() {
     showTempVar();
   });
 
-  $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=London&units=metric&callback=?', function(data) {
-    $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
+  $('#submit-city').click(function() {
+    var city = $('#city').val();
+    $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&callback=?', function(data) {
+      $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
+    });
   });
+
+  // $.getJSON('http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&callback=?', function(data) {
+  //   $('#summary').text(data.main.temp + ' \xB0C in ' + data.name); //This is a pain to find
+  // });
 
 });
